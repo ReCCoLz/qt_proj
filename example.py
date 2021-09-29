@@ -3,6 +3,8 @@ import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
 from PyQt5.QtWidgets import QLabel, QLineEdit
 
+# pyuic5 inv.ui -o inv.py команда для конв. .ui в .py 
+# self.buttonGroup.buttonClicked.connect(self.run) для группы кнопок одно событие
 
 class Example(QWidget):
     def __init__(self):
@@ -34,7 +36,7 @@ class Example(QWidget):
         self.label.setText(f"Привет, {name}")
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # чтобы выводить программу юзеру. Обязательно!!
     app = QApplication(sys.argv)
     ex = Example()
     ex.show()
