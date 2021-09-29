@@ -1,30 +1,27 @@
 import sys
+from bs4 import BeautifulSoup
+import requests
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from inv import Ui_MainWindow
 
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
 
-
-class Example(QWidget):
+# Наследуемся от виджета из PyQt5.QtWidgets и от класса с интерфейсом
+class MyWidget(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        self.initUI()
+        # Вызываем метод для загрузки интерфейса из класса Ui_MainWindow,
+        # остальное без изменений
+        self.setupUi(self)
+        self.pushButton.clicked.connect(self.find)
 
-    def initUI(self):
-        self.setGeometry(300, 300, 300, 300)
-        self.setWindowTitle('Третья программа')
+    def find(self):
+        cur = self.comboBox.currentText()
+        print(cur)
 
-        self.btn = QPushButton('Кнопка', self)
-        self.btn.resize(100, 100)
-        self.btn.move(100, 100)
-        # присоединим к событию нажатия на кнопку обработчик self.hello()
-        self.btn.clicked.connect(self.hello)
-
-    def hello(self):
-        # метод setText() используется для задания надписи на кпопке
-        self.btn.setText('Привет')
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = Example()
+    ex = MyWidget()
     ex.show()
-    sys.exit(app.exec())
+    sys.exit(app.exec_())
