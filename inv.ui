@@ -50,7 +50,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Кодировка</string>
+        <string>Котировка</string>
        </property>
       </widget>
      </item>
