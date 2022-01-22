@@ -30,7 +30,7 @@ class InsertDialog(QDialog):
     def __init__(self, *args, **kwargs):
         super(InsertDialog, self).__init__(*args, **kwargs)
 
-        self.QBtn = QPushButton()   #create Push button
+        self.QBtn = QPushButton()   
         self.QBtn.setText("Register")
 
         self.setWindowTitle("Add Student")
@@ -39,7 +39,7 @@ class InsertDialog(QDialog):
 
         self.QBtn.clicked.connect(self.addstudent)
 
-        layout = QVBoxLayout()  #set verticle layout
+        layout = QVBoxLayout()  
 
         self.nameinput = QLineEdit()
         self.nameinput.setPlaceholderText("Name")
@@ -67,7 +67,7 @@ class InsertDialog(QDialog):
 
         self.mobileinput = QLineEdit()
         self.mobileinput.setPlaceholderText("Mobile")
-        self.mobileinput.setInputMask('99999 99999') # set validator for user can only input interger input
+        self.mobileinput.setInputMask('99999 99999') 
         layout.addWidget(self.mobileinput)
 
         self.addressinput = QLineEdit()
@@ -99,10 +99,10 @@ class InsertDialog(QDialog):
             self.conn.commit()
             self.c.close()
             self.conn.close()
-            QMessageBox.information(QMessageBox(),'Successful','Student is added successfully to the database.')
+            QMessageBox.information(QMessageBox(),'Successful','Студент добавлен.')
             self.close()
         except Exception:
-            QMessageBox.warning(QMessageBox(), 'Error', 'Could not add student to the database.')
+            QMessageBox.warning(QMessageBox(), 'Error', 'Не получилось добавить студента.')
 
 class SearchDialog(QDialog):
     def __init__(self, *args, **kwargs):
@@ -140,7 +140,7 @@ class SearchDialog(QDialog):
             self.c.close()
             self.conn.close()
         except Exception:
-            QMessageBox.warning(QMessageBox(), 'Error', 'Could not Find student from the database.')
+            QMessageBox.warning(QMessageBox(), 'Error', 'Студент не найден.')
 
 class DeleteDialog(QDialog):
     def __init__(self, *args, **kwargs):
@@ -174,10 +174,10 @@ class DeleteDialog(QDialog):
             self.conn.commit()
             self.c.close()
             self.conn.close()
-            QMessageBox.information(QMessageBox(),'Successful','Deleted From Table Successful')
+            QMessageBox.information(QMessageBox(),'Successful','Успешно удален')
             self.close()
         except Exception:
-            QMessageBox.warning(QMessageBox(), 'Error', 'Could not Delete student from the database.')
+            QMessageBox.warning(QMessageBox(), 'Error', 'Не получилось удалить студента.')
 
 class LoginDialog(QDialog):
     def __init__(self, *args, **kwargs):
@@ -210,7 +210,7 @@ class LoginDialog(QDialog):
         if(self.passinput.text() == "Acet"):
             self.accept()
         else:
-            QMessageBox.warning(self, 'Error', 'Wrong Password')
+            QMessageBox.warning(self, 'Error', 'Неверный пароль')
 
 
 
@@ -243,8 +243,7 @@ class AboutDialog(QDialog):
 
         layout.addWidget(title)
 
-        layout.addWidget(QLabel("Version 5.3.2"))
-        layout.addWidget(QLabel("Copyright 2018 CYB Inc."))
+        layout.addWidget(QLabel("Version 0.0.1"))
         layout.addWidget(labelpic)
 
 
