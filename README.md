@@ -381,16 +381,3 @@ if(passdlg.exec_() == QDialog.Accepted):
 sys.exit(app.exec_())
 ```
 
-### Database Files are included in Project. (database.sql)
-
-### Author
-
-Ajay Randhawa
-
-## Donate
-If you appreciate that, please consider donating to the Developer.
-
-[![Donate](Sc/donate.png)](https://www.paypal.me/ajayrandhawa) 
-
-### Happy Open Source..
-  
