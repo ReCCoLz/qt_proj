@@ -1,17 +1,17 @@
-# PyQt-Sqlite-Project-CURD  
-Pyqt SQLite Project Have Features like login, Add, Delete, Search, Update, Show the Students. In this, I show all the CURD operations of the Program. All Project is well represented and with interactive Toolbar &amp; Menu bar. The database is included in the repository.
+# PyQt-Sqlite-Проект-CURD
+Pyqt SQLite Project имеет такие функции, как вход в систему, добавление, удаление, поиск, обновление, отображение студентов. Здесь я показываю все операции CURD Программы. Весь проект хорошо представлен и с интерактивной панелью инструментов &amp; Строка меню. База включена в репозиторий.
 
-# Features
+# Функции
 
-* Dashboard
-* Login
-* User list
-* Add User
-* Search User
-* Modify User
-* Delete User
+* Приборная доска
+* Авторизоваться
+* Список пользователей
+* Добавить пользователя
+* Поиск пользователя
+* Изменить пользователя
+* Удалить пользователя
 
-## Screenshots
+## Скриншоты
 
 | Screenshots  | Screenshots |
 | ------------- | ------------- |
