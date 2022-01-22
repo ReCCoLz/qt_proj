@@ -11,15 +11,8 @@ Pyqt SQLite Project имеет такие функции, как вход в с�
 * Изменить пользователя
 * Удалить пользователя
 
-## Скриншоты
 
-| Screenshots  | Screenshots |
-| ------------- | ------------- |
-| <img src="/Sc/A.PNG"> | <img src="/Sc/A4.PNG"> |
-| <img src="/Sc/A1.PNG"> | <img src="/Sc/A2.PNG"> |
-| <img src="/Sc/A3.PNG"> 
-
-### Code
+# КОД
 
 ```
 from PyQt5.QtCore import *
