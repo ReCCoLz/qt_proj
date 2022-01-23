@@ -12,9 +12,9 @@ class InsertDialog(QDialog):
         super(InsertDialog, self).__init__(*args, **kwargs)
 
         self.QBtn = QPushButton()
-        self.QBtn.setText("Register")
+        self.QBtn.setText("Зарегистрировать")
 
-        self.setWindowTitle("Add Student")
+        self.setWindowTitle("Добавить студента")
         self.setFixedWidth(300)
         self.setFixedHeight(250)
 
@@ -23,16 +23,16 @@ class InsertDialog(QDialog):
         layout = QVBoxLayout()
 
         self.nameinput = QLineEdit()
-        self.nameinput.setPlaceholderText("Name")
+        self.nameinput.setPlaceholderText("Имя")
         layout.addWidget(self.nameinput)
 
         self.branchinput = QComboBox()
-        self.branchinput.addItem("Mechanical")
-        self.branchinput.addItem("Civil")
-        self.branchinput.addItem("Electrical")
-        self.branchinput.addItem("Electronics and Communication")
-        self.branchinput.addItem("Computer Science")
-        self.branchinput.addItem("Information Technology")
+        self.branchinput.addItem("Механический")
+        self.branchinput.addItem("Мирный")
+        self.branchinput.addItem("Электрик")
+        self.branchinput.addItem("Электроника и Коммуникация")
+        self.branchinput.addItem("Комьютер")
+        self.branchinput.addItem("Информатика")
         layout.addWidget(self.branchinput)
 
         self.seminput = QComboBox()
@@ -47,12 +47,12 @@ class InsertDialog(QDialog):
         layout.addWidget(self.seminput)
 
         self.mobileinput = QLineEdit()
-        self.mobileinput.setPlaceholderText("Mobile")
-        self.mobileinput.setInputMask('99999 99999')
+        self.mobileinput.setPlaceholderText("Телефон")
+        self.mobileinput.setInputMask('9999 9999999')
         layout.addWidget(self.mobileinput)
 
         self.addressinput = QLineEdit()
-        self.addressinput.setPlaceholderText("Address")
+        self.addressinput.setPlaceholderText("Адрес")
         layout.addWidget(self.addressinput)
 
         layout.addWidget(self.QBtn)
@@ -78,19 +78,19 @@ class InsertDialog(QDialog):
             self.conn.commit()
             self.c.close()
             self.conn.close()
-            QMessageBox.information(QMessageBox(),'Successful','Student is added successfully to the database.')
+            QMessageBox.information(QMessageBox(),'Успешно','Студент успешно добавлен.')
             self.close()
         except Exception:
-            QMessageBox.warning(QMessageBox(), 'Error', 'Could not add student to the database.')
+            QMessageBox.warning(QMessageBox(), 'Ошибка', 'Не вышло добавить студента.')
 
 class SearchDialog(QDialog):
     def __init__(self, *args, **kwargs):
         super(SearchDialog, self).__init__(*args, **kwargs)
 
         self.QBtn = QPushButton()
-        self.QBtn.setText("Search")
+        self.QBtn.setText("Найти")
 
-        self.setWindowTitle("Search user")
+        self.setWindowTitle("Найти пользователя")
         self.setFixedWidth(300)
         self.setFixedHeight(100)
         self.QBtn.clicked.connect(self.searchstudent)
@@ -113,22 +113,22 @@ class SearchDialog(QDialog):
             self.c = self.conn.cursor()
             result = self.c.execute("SELECT * from students WHERE roll="+str(searchrol))
             row = result.fetchone()
-            serachresult = "Rollno : "+str(row[0])+'\n'+"Name : "+str(row[1])+'\n'+"Branch : "+str(row[2])+'\n'+"Sem : "+str(row[3])+'\n'+"Address : "+str(row[4])
-            QMessageBox.information(QMessageBox(), 'Successful', serachresult)
+            serachresult = "Rollno : "+str(row[0])+'\n'+"Имя : "+str(row[1])+'\n'+"Филиал : "+str(row[2])+'\n'+"Sem : "+str(row[3])+'\n'+"Адрес : "+str(row[4])
+            QMessageBox.information(QMessageBox(), 'Успех', serachresult)
             self.conn.commit()
             self.c.close()
             self.conn.close()
         except Exception:
-            QMessageBox.warning(QMessageBox(), 'Error', 'Could not Find student from the database.')
+            QMessageBox.warning(QMessageBox(), 'Error', 'Студент не найден.')
 
 class DeleteDialog(QDialog):
     def __init__(self, *args, **kwargs):
         super(DeleteDialog, self).__init__(*args, **kwargs)
 
         self.QBtn = QPushButton()
-        self.QBtn.setText("Delete")
+        self.QBtn.setText("Удалить")
 
-        self.setWindowTitle("Delete Student")
+        self.setWindowTitle("Удалить Студента")
         self.setFixedWidth(300)
         self.setFixedHeight(100)
         self.QBtn.clicked.connect(self.deletestudent)
@@ -153,10 +153,10 @@ class DeleteDialog(QDialog):
             self.conn.commit()
             self.c.close()
             self.conn.close()
-            QMessageBox.information(QMessageBox(),'Successful','Deleted From Table Successful')
+            QMessageBox.information(QMessageBox(),'Успех','Успешно удален из таблицы')
             self.close()
         except Exception:
-            QMessageBox.warning(QMessageBox(), 'Error', 'Could not Delete student from the database.')
+            QMessageBox.warning(QMessageBox(), 'Ошибка', 'Не вышло удалить из таблицы.')
 
 class LoginDialog(QDialog):
     def __init__(self, *args, **kwargs):
@@ -169,13 +169,13 @@ class LoginDialog(QDialog):
 
         self.passinput = QLineEdit()
         self.passinput.setEchoMode(QLineEdit.Password)
-        self.passinput.setPlaceholderText("Enter Password.")
+        self.passinput.setPlaceholderText("Введите пароль.")
         self.QBtn = QPushButton()
-        self.QBtn.setText("Login")
-        self.setWindowTitle('Login')
+        self.QBtn.setText("Вход")
+        self.setWindowTitle('Вход')
         self.QBtn.clicked.connect(self.login)
 
-        title = QLabel("Login")
+        title = QLabel("Вход")
         font = title.font()
         font.setPointSize(16)
         title.setFont(font)
@@ -186,10 +186,10 @@ class LoginDialog(QDialog):
         self.setLayout(layout)
 
     def login(self):
-        if(self.passinput.text() == "Acet"):
+        if(self.passinput.text() == "12345678"):
             self.accept()
         else:
-            QMessageBox.warning(self, 'Error', 'Wrong Password')
+            QMessageBox.warning(self, 'Ошибка', 'Неверный пароль')
 
 
 
@@ -202,7 +202,7 @@ class AboutDialog(QDialog):
         self.setFixedWidth(300)
         self.setFixedHeight(250)
 
-        QBtn = QDialogButtonBox.Ok  # No cancel
+        QBtn = QDialogButtonBox.Ok  
         self.buttonBox = QDialogButtonBox(QBtn)
         self.buttonBox.accepted.connect(self.accept)
         self.buttonBox.rejected.connect(self.reject)
@@ -222,8 +222,7 @@ class AboutDialog(QDialog):
 
         layout.addWidget(title)
 
-        layout.addWidget(QLabel("Version 5.3.2"))
-        layout.addWidget(QLabel("Copyright 2018 CYB Inc."))
+        layout.addWidget(QLabel("Версия 0.0.0"))
         layout.addWidget(labelpic)
 
 
@@ -241,10 +240,9 @@ class MainWindow(QMainWindow):
         self.c.execute("CREATE TABLE IF NOT EXISTS students(roll INTEGER PRIMARY KEY AUTOINCREMENT ,name TEXT,branch TEXT,sem INTEGER,mobile INTEGER,address TEXT)")
         self.c.close()
 
-        file_menu = self.menuBar().addMenu("&File")
+        file_menu = self.menuBar().addMenu("&Файл")
 
-        help_menu = self.menuBar().addMenu("&About")
-        self.setWindowTitle("Student Management CRUD")
+        self.setWindowTitle("Менеджер студентов")
 
         self.setMinimumSize(800, 600)
 
@@ -258,7 +256,7 @@ class MainWindow(QMainWindow):
         self.tableWidget.verticalHeader().setVisible(False)
         self.tableWidget.verticalHeader().setCascadingSectionResizes(False)
         self.tableWidget.verticalHeader().setStretchLastSection(False)
-        self.tableWidget.setHorizontalHeaderLabels(("Roll No.", "Name", "Branch", "Sem", "Mobile","Address"))
+        self.tableWidget.setHorizontalHeaderLabels(("Roll No.", "Имя", "Branch", "Sem", "Телефон","Адрес"))
 
         toolbar = QToolBar()
         toolbar.setMovable(False)
@@ -267,42 +265,38 @@ class MainWindow(QMainWindow):
         statusbar = QStatusBar()
         self.setStatusBar(statusbar)
 
-        btn_ac_adduser = QAction(QIcon("icon/add.png"), "Add Student", self)
+        btn_ac_adduser = QAction(QIcon("icon/add.png"), "Добавить студента", self)
         btn_ac_adduser.triggered.connect(self.insert)
-        btn_ac_adduser.setStatusTip("Add Student")
+        btn_ac_adduser.setStatusTip("Добавить студента")
         toolbar.addAction(btn_ac_adduser)
 
-        btn_ac_refresh = QAction(QIcon("icon/refresh.png"),"Refresh",self)
+        btn_ac_refresh = QAction(QIcon("icon/refresh.png"),"Обновить",self)
         btn_ac_refresh.triggered.connect(self.loaddata)
-        btn_ac_refresh.setStatusTip("Refresh Table")
+        btn_ac_refresh.setStatusTip("Обновить таблицу")
         toolbar.addAction(btn_ac_refresh)
 
-        btn_ac_search = QAction(QIcon("icon/search.png"), "Search", self)
+        btn_ac_search = QAction(QIcon("icon/search.png"), "Найти", self)
         btn_ac_search.triggered.connect(self.search)
-        btn_ac_search.setStatusTip("Search User")
+        btn_ac_search.setStatusTip("Найти пользователя")
         toolbar.addAction(btn_ac_search)
 
-        btn_ac_delete = QAction(QIcon("icon/trash.png"), "Delete", self)
+        btn_ac_delete = QAction(QIcon("icon/trash.png"), "Удалить", self)
         btn_ac_delete.triggered.connect(self.delete)
-        btn_ac_delete.setStatusTip("Delete User")
+        btn_ac_delete.setStatusTip("Удалить пользователя")
         toolbar.addAction(btn_ac_delete)
 
-        adduser_action = QAction(QIcon("icon/add.png"),"Insert Student", self)
+        adduser_action = QAction(QIcon("icon/add.png"),"Добавить запись", self)
         adduser_action.triggered.connect(self.insert)
         file_menu.addAction(adduser_action)
 
-        searchuser_action = QAction(QIcon("icon/search.png"), "Search Student", self)
+        searchuser_action = QAction(QIcon("icon/search.png"), "Найти студента", self)
         searchuser_action.triggered.connect(self.search)
         file_menu.addAction(searchuser_action)
 
-        deluser_action = QAction(QIcon("icon/trash.png"), "Delete", self)
+        deluser_action = QAction(QIcon("icon/trash.png"), "Удалить", self)
         deluser_action.triggered.connect(self.delete)
         file_menu.addAction(deluser_action)
 
-
-        about_action = QAction(QIcon("icon/info.png"),"Developer", self)
-        about_action.triggered.connect(self.about)
-        help_menu.addAction(about_action)
 
     def loaddata(self):
         self.connection = sqlite3.connect("database.db")
