@@ -28,7 +28,7 @@ class InsertDialog(QDialog):
 
         self.branchinput = QComboBox()
         self.branchinput.addItem("Механический")
-        self.branchinput.addItem("Мирный")
+        self.branchinput.addItem("Микрочелик")
         self.branchinput.addItem("Электрик")
         self.branchinput.addItem("Электроника и Коммуникация")
         self.branchinput.addItem("Комьютер")
